@@ -13,9 +13,8 @@ class App extends React.Component {
         ); 
     }
 
-    //React says we have to define render!! as a method 
-    //conditional Rendering 
-    render() {      
+    //Helper function to avoid repetition of the same conditionals in Render 
+    renderContent() {
         if (this.state.errorMessage && !this.state.lat) {
             return <div>Error: {this.state.errorMessage}</div>;
         }
@@ -24,8 +23,20 @@ class App extends React.Component {
             return <SeasonDisplay lat={this.state.lat}/> 
         } 
         
-        return <Spinner></Spinner>; 
+        return <Spinner message="please accept the location request!" />;   //Loading ... 
     }
+    
+
+    //React says we have to define render!! as a method 
+    //conditional Rendering 
+    render() {     
+        return (  // //Helper function to avoid repetition of the same conditionals in Render 
+            <div className="border red">
+                {this.renderContent()}
+            </div>
+        );
+    } 
+        
 }
 
 ReactDOM.render (

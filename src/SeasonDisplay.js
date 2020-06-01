@@ -1,26 +1,7 @@
 import React from 'react'; 
 import './SeasonDisplay.css'; // webpack works 
 
-const seasonConfig = {
-    summer: {
-        text : "Let's hit the beach!",
-        iconName : 'sun'
-    },
-    winter: {
-        text : "Burr it is cold. I need your hugs.",
-        iconName : 'snowflake'
-    }
-}; 
-
-const getSeason = (lat, month) => {
-    if (month > 2 && month < 9)  {//Northern hemisphere 3~8 
-        return lat > 0 ? 'summer' : 'winter';   // JS ternery expression : otherwise
-    }else {
-        return lat > 0 ? 'winter' : 'summer';  
-    }
-}; 
-
-const SeasonDisplay = (props) => {
+const SeasonDisplay = (props) => {  //functional component
     const season = getSeason(props.lat, new Date().getMonth()); 
     const { text, iconName } = seasonConfig[season];  
     
@@ -32,6 +13,27 @@ const SeasonDisplay = (props) => {
         </div>
     );
 };  
+
+const seasonConfig = {
+    summer: {
+        text : "Let's hit the beach!",
+        iconName : 'sun'
+    },
+    winter: {
+        text : "Burr it is cold. I need your hugs.",
+        iconName : 'snowflake'
+    }
+}; 
+
+const getSeason = (lat, month) => {  //helper function 
+    if (month > 2 && month < 9)  {//Northern hemisphere 3~8 
+        return lat > 0 ? 'summer' : 'winter';   // JS ternery expression : otherwise
+    }else {
+        return lat > 0 ? 'winter' : 'summer';  
+    }
+}; 
+
+
 
 // const SeasonDisplay = (props) => {
 //     const season = getSeason(props.lat, new Date().getMonth()); 
