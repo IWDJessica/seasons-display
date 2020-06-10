@@ -35,6 +35,8 @@ const getSeason = (lat, month) => {  //helper function
 
 
 
+
+
 // const SeasonDisplay = (props) => {
 //     const season = getSeason(props.lat, new Date().getMonth()); 
 //     return (<div> {season === 'winte' ? 'Burr, it is chilly' : 'Lets hit the beach'} </div>);

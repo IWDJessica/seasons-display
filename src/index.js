@@ -10,7 +10,7 @@ class App extends React.Component {
         window.navigator.geolocation.getCurrentPosition(
             position =>  this.setState ({ lat: position.coords.latitude}),    
             err => this.setState ({errorMessage: err.message})  //call-back funciton
-        ); 
+        ); // update DOM 
     }
 
     //Helper function to avoid repetition of the same conditionals in Render 
